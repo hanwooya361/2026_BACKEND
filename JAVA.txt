@@ -20,7 +20,7 @@
         2) char     2byte   ''감싼 문자1개저장
         3) byte     1byte   -128 ~ +127
         4) short    2byte   -+3만정도
-        5) intt     4byte   -+21억정도          *정수 리터럴 기본타입*
+        5) int     4byte   -+21억정도          *정수 리터럴 기본타입*
         6) long     8byte   -+21억이상         L/l
         7) float    4byte   소수점 8자리 표현   F/f
         8) double   8byte   소수점 17자리 표현  *실수 리터럴 기본타입*
