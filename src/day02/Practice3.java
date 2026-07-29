@@ -1,9 +1,74 @@
 package day02;
 
+import java.util.Scanner;
+
 public class Practice3 {
     public static void main(String[] args) {
         // 1.
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("국어점수: ");
+        int 국어 = scanner.nextInt();
+        System.out.print("수학점수: ");
+        int 수학 = scanner.nextInt();
+        System.out.print("영어점수: ");
+        int 영어 = scanner.nextInt();
+        int 총점 = (국어+수학+영어);
+        double 평균 = (국어+수학+영어)/3;
+        System.out.println(총점);
+        System.out.println(평균);
+        // 2.
+
+        System.out.print("반지름길이: ");
+        double 반지름 = scanner.nextDouble();
+        double 원의넓이 = (반지름 * 반지름 * 3.14);
+        System.out.println(원의넓이);
+
+        // 3.
+        System.out.print("첫번째 실수:");
+        double 실수1 = scanner.nextDouble();
+        System.out.print("두번째 실수:");
+        double 실수2 = scanner.nextDouble();
+        double 합 = (실수1/실수2)*100;
+        System.out.println(합+"%");
+
+        // 4.   값 % 2 == 1 , 나머지가 0이면 짝수 / 1이면 홀수
+        System.out.print("숫자를 입력하세요: ");
+        int 정수1 = scanner.nextInt();
+        System.out.println(정수1);
+        System.out.println(정수1 % 2 == 1); 
+
+        // 5.
+        System.out.print("정수를 입력하세요: ");
+        int i = scanner.nextInt();
+        System.out.println(i%7 == 0);
+
+        // 6.
+        System.out.print("아이디: ");
+        String id = scanner.next();
+        System.out.print("비밀번호: ");
+        String pw = scanner.next();
+        System.out.println(id.equals("admin") && pw.equals("1234")); //
         
+        // 7.
+        
+        // 8.
+
+        // 9.
+
+        // 10.
+
+        // 11.
+
+        // 12.
+
+        // 13.
+
+        // 14.
+
+        // 15.
+
+        // 16.
+
     }
 }
 
