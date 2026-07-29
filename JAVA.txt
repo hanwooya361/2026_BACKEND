@@ -1,0 +1,38 @@
+[ 자바 실행순서 ]
+    1. src폴더 내 .java 확장자 파일에서 java 코드 작성
+    2. 빌드 : run java 실행
+    3. [컴파일] bin폴더내 .class 확장자 파일 (자동)생성
+
+[ 주석 ]
+    1. // 
+    2. /* */
+
+[ 용어 ]
+    1. pakage : 해당 클래스가 위치한 폴더명
+    2. class : 자바에서 컴파일하는 최소의 단위
+    3. main함수 : 자바에서 *코드 실행*하는 흐름 = 스레드 제공
+    4. ;세미콜론 : 
+
+[ 자료 ] : 데이터
+    1. 리터럴 : 상수
+    2. (기본)자료타입(형)
+        1) boolean  1byte   true/false
+        2) char     2byte   ''감싼 문자1개저장
+        3) byte     1byte   -128 ~ +127
+        4) short    2byte   -+3만정도
+        5) intt     4byte   -+21억정도          *정수 리터럴 기본타입*
+        6) long     8byte   -+21억이상         L/l
+        7) float    4byte   소수점 8자리 표현   F/f
+        8) double   8byte   소수점 17자리 표현  *실수 리터럴 기본타입*
+        *) String   N*2byte ""감싼 문자N개 저장, 문자열객체(배열)
+
+[ 출력함수 ]
+    1. System.out.print() : 출력
+    1. System.out.println() : 출력+줄바꿈
+    1. System.out.printf("형식문자", 자료) : 형식문자
+    *) 이스케이프/제어 문자 : \n \t \' \" \\
+    *) 형식문자 : %s문자열 %d정수 %c문자 %f실수 , %자릿수s &-자릿수s %0자릿수 %전체자릿수.소수점자릿수f
+
+[ 입력함수 ] : 다양한 입력방식 제공
+    1. 입력객체 생성(클래스마다 1번씩)
+        Scanner scanner = new Scanner(System.in);
