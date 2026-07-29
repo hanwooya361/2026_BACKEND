@@ -1,5 +1,7 @@
 package day02;
 
+import java.util.Scanner;
+
 public class Practice1 {
     public static void main(String[] args) {
         // 1. so엔터: println함수 
@@ -17,9 +19,82 @@ public class Practice1 {
         System.out.println("제 이름은 "+name+", 나이는 "+age2+"세, 키는 "+height+"cm 입니다");
         // 5. + 연결연산자 복잡한 경우 형식문자 printf
         System.out.printf("제 이름은 %s, 나이는 %d세, 키는 %.1fcm 입니다.\n", name , age2 , height);
-
+        // 6. 
+        System.out.println("|\\_/| \n|q p|   /} \n( 0 )\"\"\"\\ \n|\"^\"`    | \n||_/=\\\\__|");
+        
+        System.out.print("|\\_/|");
+        System.out.println("\n|q p|   /}");
+        System.out.println("( 0 )\"\"\"\\");
+        System.out.println("|\"^\"`    |");
+        System.out.println("||_/=\\\\__|");
+        ;
+        // 7.
+        /*
+        int num = 1;    
+        String writer = "유재석"; 
+        String content = "안녕하세요!";
+        System.out.println("=========== 방문록 ============");
+        System.out.println("번호   작성자   방문록");
+        System.out.printf("%d   %6s   %s", num, writer, content);
+        System.out.println("\n===============================");
+         */
+        int num = 1;    
+        String writer = "유재석"; 
+        String content = "안녕하세요!";
+        System.out.println("=========== 방문록 ============");
+        System.out.printf("%-3s %-5s %-10s \n", "번호", "작성자", "방문록");
+        System.out.printf("%-5d %-5s %-10s \n", num, writer, content);
+        System.out.println("===============================");
+        // 8.
+        Scanner scan = new Scanner(System.in);
+        System.out.print("이름을 입력하세요: ");
+        String 이름 = scan.next();
+        System.out.print("나이을 입력하세요: ");
+        int 나이 = scan.nextInt();
+        System.out.printf("%s님의 나이는 %d입니다.\n", 이름, 나이);
+        // 9.   Scanner은 이미 만들었기때문에 이어서 사용, nextLinne() 띄어쓰기포함입력  
+        // 주의할점 : 만약 nextLine() 앞에 다른 nextxxx() 존재 한 경우엔 사이에 의미없는 nextLine()추가
+        System.out.print("게시물 번호 : ");
+        int 번호 = scan.nextInt();
+        scan.nextLine();    // nextInt() 3입력후 엔터(\n) 치면 3반환되고 엔터(\n) 유지(남는다) 된다. \n 초기화
+        System.out.print("제목 : ");
+        String 제목 = scan.nextLine();
+        System.out.print("내용 : ");
+        String 내용 = scan.nextLine();
+        System.out.printf("[ %d번 게시물 ] \n제목: %s \n내용: %s \n", 번호, 제목, 내용);
+        // 10. nextChar() 제공x. next().charAt(인덱스) : 해당인덱스의 문자1개 추출함수 , *문자열은 배열이다*
+        System.out.print("성별을 입력하세요(남/여): ");
+        char 성별 = scan.next().charAt(0);
+        System.out.printf("입력하신 성별은 '%s' 입니다. \n", 성별);
+        // 11.
+        System.out.print("이름: ");
+        String name3 = scan.next();
+        System.out.print("나이: ");
+        int age3 = scan.nextInt();
+        System.out.print("키: ");
+        float height3 = scan.nextFloat();
+        System.out.print("프로그래머입니까?(true/false): ");
+        boolean 추론 = scan.nextBoolean();
+        System.out.printf("--- 자기소개 --- \n이름: %s \n나이: %d \n키: %.1f \n프로그래머 여부: %b", name3, age3, height3, 추론);
     }
 }
+
+/*
+문제 11: Scanner를 사용하여 아래 4가지 정보를 순서대로 입력받아 출력하는 코드를 작성하시오.
+이름 (String), 나이 (int), 키 (double), 프로그래머 여부 (boolean)
+입력 예시:
+이름: 김자바
+나이: 25
+키: 165.8
+프로그래머입니까? (true/false): true
+출력 예시:
+--- 자기소개 ---
+이름: 김자바
+나이: 25
+키: 165.8cm
+프로그래머 여부: true
+*/
+
 
 /* 문제 1: 리터럴(Literal)과 기본 출력 함수
 지시: System.out.println() 함수를 사용해서 숫자 25와 문자열 "홍길동"을 각각 다른 줄에 출력 하시오.*/
@@ -92,18 +167,4 @@ String content = "안녕하세요!"; // 문자열 "안녕하세요!"를 저장�
 입력하신 성별은 '남' 입니다.
 */
 
-/*
-문제 11: Scanner를 사용하여 아래 4가지 정보를 순서대로 입력받아 출력하는 코드를 작성하시오.
-이름 (String), 나이 (int), 키 (double), 프로그래머 여부 (boolean)
-입력 예시:
-이름: 김자바
-나이: 25
-키: 165.8
-프로그래머입니까? (true/false): true
-출력 예시:
---- 자기소개 ---
-이름: 김자바
-나이: 25
-키: 165.8cm
-프로그래머 여부: true
-*/
+

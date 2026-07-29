@@ -36,3 +36,5 @@
 [ 입력함수 ] : 다양한 입력방식 제공
     1. 입력객체 생성(클래스마다 1번씩)
         Scanner scanner = new Scanner(System.in);
+    2) 입력객체 통한 입력함수( nextXXX() , 타입 주의 , 여러개 next() 엔터기준으로 구분 )
+        타입 변수명 = scan.nextXXX();
