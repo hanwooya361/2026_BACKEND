@@ -105,7 +105,7 @@ public class Practice3 {
 
         // 15.  삼항연산자 중첩
         System.out.println("점수를 입력하세요:"); int score3 = scanner.nextInt();
-        System.out.printf("등급: %c\n", score3>=90 && score3 <= 100 ? 'A' : score3 >= 80 && score3 < 90 ? 'B' : 'C');
+        System.out.printf("등급: %c\n", score3>=90 && score3 <= 100 ? 'A' : score3 >= 80 ? 'B' : 'C');
         
         // 16.
         System.out.println("나이를 입력하세요:"); int age = scanner.nextInt();
