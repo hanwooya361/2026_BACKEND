@@ -1,9 +1,142 @@
 package day03;
 
+import java.util.Scanner;
+
 public class Practice4 {
     public static void main(String[] args) {
         // 1.
-    }   
+        Scanner scanner = new Scanner(System.in);
+        /* System.out.print("첫번째점수: ");
+        int 점수1 = scanner.nextInt();
+        System.out.print("두번째점수: ");
+        int 점수2 = scanner.nextInt();
+        int 총점 = 점수1+점수2;
+        if(총점 >= 90){System.out.println("성공");}
+        else{System.out.println("실패");}
+
+        // 2.
+        System.out.print("첫번쨰정수: ");
+        int 정수1 = scanner.nextInt();
+        System.out.print("두번째정수: ");
+        int 정수2 = scanner.nextInt();
+        if(정수1>정수2){System.out.println(정수1);}
+        else{System.out.println(정수2);}
+
+        // 3.
+        System.out.print("아이디: ");
+        String id = scanner.next();
+        System.out.print("비밀번호: ");
+        String pw = scanner.next();
+        if(id.equals("admin") && pw.equals("1234")){System.out.println("로그인 성공");}
+        else{System.out.println("로그인 실패");}
+
+        // 4.
+        System.out.print("비밀번호: ");
+        String pw1 = scanner.next();
+        if(pw1.length() >= 12){System.out.println("보안등급: 강함");}
+        else if(pw1.length() >= 8){System.out.println("보안등급: 보통");}
+        else{System.out.println("보안등급: 약함(8자이상으로 설정해주세요)");}
+
+        // 5.
+        System.out.print("주민등록번호(-포함) 13자리를 입력하세요: ");
+        String 주민등록번호 = scanner.next();
+        if(주민등록번호.charAt(7)==1 || 주민등록번호.charAt(7)==3){System.out.println("남자");}
+        else if(주민등록번호.charAt(7)==2 || 주민등록번호.charAt(7)==4){System.out.println("여자");}
+        
+        // 6.
+        System.out.print("점수를 입력하세요: ");
+        int 게임점수 = scanner.nextInt();
+        if(게임점수 >= 900){System.out.println("A급 경품");}
+        else if(게임점수 >= 700){System.out.println("B급 경품");}
+        else if(게임점수 >= 500){System.out.println("C급 경품");}
+        else{System.out.println("참가상");}
+
+        // 7.
+        System.out.print("역할을 입력하세요: ");
+        String 역할 = scanner.next();
+        if(역할.equals("admin")){System.out.println("모든 기능에 접근할 수 있습니다");}
+        else if(역할.equals("editor")){System.out.println("콘텐츠 수정 및 생성 기능에 접근할 수 있습니다");}
+        else if(역할.equals("viewer")){System.out.println("콘텐츠 조회만 가능합니다");}
+        else{System.out.println("정의되지 않는 역할입니다");}
+
+        // 8.
+        System.out.print("나이를 입력하세요: ");
+        int 나이 = scanner.nextInt();
+        if(나이 >= 65){System.out.println("3000원");}
+        else if(나이 >= 20){System.out.println("10,000원");}
+        else if(나이 >= 8){System.out.println("5000원");}
+        else{System.out.println("무료");}
+
+        // 9.
+        System.out.print("점수를 입력하세요: ");
+        int 점수3 = scanner.nextInt();
+        if(점수3 >= 90){System.out.println("A등급");}
+        else if(점수3 >= 80){System.out.println("B등급");}
+        else if(점수3 >= 70){System.out.println("C등급");}
+        else{System.out.println("재시험");}
+
+        // 10.
+        System.out.print("총 구매 금액: ");
+        int 구매금액 = scanner.nextInt();
+        if(구매금액 >= 50000){System.out.println(구매금액 - 구매금액/10);
+        }else if(구매금액 >= 30000){System.out.println(구매금액 - 구매금액/5);
+        }else if(구매금액 >= 10000){System.out.println(구매금액 - 구매금액/1);
+        }else{System.out.println(구매금액);}
+
+        // 11.
+        System.out.print("월(1~12)을 입력하세요: "); */ 
+
+        // 13.
+        System.out.print("연도를 입력하세요: ");
+        int 연도 = scanner.nextInt();
+        if(연도%4==0 && 연도%100!=0 || 연도%400==0){System.out.printf("%d은 윤년입니다", 연도);}
+        else{System.out.printf("%d은 평년입니다", 연도);}
+        
+        // 14.
+        System.out.print("첫번째정수: ");
+        int 정수1 = scanner.nextInt();
+        System.out.print("두번째정수: ");
+        int 정수2 = scanner.nextInt();
+        System.out.print("세번째정수: ");
+        int 정수3 = scanner.nextInt();
+        if(정수1 > 정수2 && 정수2 > 정수3){System.out.printf("%d, %d, %d", 정수3, 정수2, 정수1);}
+        else if(정수1 > 정수3 && 정수3 > 정수2){System.out.printf("%d, %d, %d", 정수2, 정수3, 정수1);}
+        else if(정수2 > 정수1 && 정수1 > 정수3){System.out.printf("%d, %d, %d", 정수3, 정수1, 정수2);}
+        else if(정수2 > 정수3 && 정수3 > 정수1){System.out.printf("%d, %d, %d", 정수1, 정수3, 정수2);}
+        else if(정수3 > 정수2 && 정수2 > 정수1){System.out.printf("%d, %d, %d", 정수1, 정수2, 정수3);}
+        else if(정수3 > 정수1 && 정수1 > 정수2){System.out.printf("%d, %d, %d", 정수2, 정수1, 정수3);}
+    
+        // 15.
+        System.out.print("플레이어1 (0:가위, 1:바위, 2:보): ");
+        int 플레이어1 = scanner.nextInt();
+        System.out.print("플레이어2 (0:가위, 1:바위, 2:보): ");
+        int 플레이어2 = scanner.nextInt();
+
+        if(플레이어1==0){
+            if(플레이어2==0){
+                System.out.println("무승부");
+            }else if(플레이어2==1){
+                System.out.println("플레이어2 승리");
+            }else{System.out.println("플레이어1 승리");} 
+        }
+
+        else if(플레이어1==1){
+            if(플레이어2==1){
+                System.out.println("무승부");
+            }else if(플레이어2==2){
+                System.out.println("플레이어2 승리");
+            }else{System.out.println("플레이어1 승리");}
+        }
+
+        else if(플레이어1==2){
+            if(플레이어2==2){
+                System.out.println("무승부");
+            }else if(플레이어2==0){
+                System.out.println("플레이어2 승리");
+            }else{System.out.println("플레이어1 승리");}
+        }
+        
+    }     
 }
 
 /* [문제 1] Scanner를 이용해 두 개의 점수(int)를 입력받아 총점을 계산하세요.
