@@ -100,17 +100,16 @@ public class Practice3 {
         String 아이디 = scanner.next();
         System.out.print("이메일: ");
         String 이메일 = scanner.next();
-        if(아이디.equals("admin") || 이메일.equals("admin@test.com")){System.out.println("관리자");}
-        else{System.out.println("일반 사용자");};
+        boolean result = 아이디.equals("admin") || 이메일.equals("admin@test.com");
+        System.out.println(result ? "관리자" : "일반 사용자");
 
-        // 15.
-        System.out.println("점수를 입력하세요:");
-        int score3 = scanner.nextInt();
+        // 15.  삼항연산자 중첩
+        System.out.println("점수를 입력하세요:"); int score3 = scanner.nextInt();
         System.out.printf("등급: %c\n", score3>=90 && score3 <= 100 ? 'A' : score3 >= 80 && score3 < 90 ? 'B' : 'C');
         
         // 16.
         System.out.println("나이를 입력하세요:"); int age = scanner.nextInt();
-System.out.println(age >= 20 && age <= 29 ? "이벤트 대상입니다." : "이벤트 대상이 아닙니다.");
+        System.out.println(age >= 20 && age <= 29 ? "이벤트 대상입니다." : "이벤트 대상이 아닙니다.");
     }
 }
 
