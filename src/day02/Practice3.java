@@ -50,25 +50,67 @@ public class Practice3 {
         System.out.println(id.equals("admin") && pw.equals("1234")); //
         
         // 7.
-        
-        // 8.
+        System.out.print("정수를 입력하세요: ");
+        int 정수2 = scanner.nextInt();
+        System.out.println(정수2%2==1 && 정수2%7 == 0);
 
+        // 8.
+        System.out.print("1차 점수: ");
+        int 점수1 = scanner.nextInt();
+        System.out.print("2차 점수: ");
+        int 점수2 = scanner.nextInt();
+        System.out.println(점수1+점수2 >= 150 ? "합격" : "불합격");
+        
         // 9.
+        System.out.print("이름을 입력하세요: ");
+        String 이름 = scanner.next();
+        // 변수선언: 타입명 변수 = 값 , 변수값수정: 변수명 = 새로운값
+        이름 += 이름.equals("유재석") ? "(방장)" : ""; 
+        System.out.println(이름);
 
         // 10.
+        System.out.print("밑변: ");    
+        double 밑변 = scanner.nextDouble();  
+        System.out.print("높이: "); 
+        double 높이 = scanner.nextDouble();
+        System.out.println(밑변*높이/2.0);
+
 
         // 11.
+        System.out.print("섭씨온도: ");
+        double 온도 = scanner.nextDouble();
+        double 화씨 = (온도*9.0/5.0)+32;
+        System.out.println(화씨);
 
         // 12.
+        System.out.print("태어난 연도: ");
+        int 연도 = scanner.nextInt();
+        System.out.println("2025년 기준 나이" +(2025-연도)+ "세");
 
         // 13.
+        System.out.print("키(cm) 입력: ");
+        double height = scanner.nextDouble(); height /= 100.0;
+        System.out.print("몸무게(kg) 입력: ");
+        double weight = scanner.nextDouble();
+        double result13 = weight / (height * height);
+        System.out.printf("BMI 지수: %.2f", result13);
 
         // 14.
+        System.out.print("아이디: ");
+        String 아이디 = scanner.next();
+        System.out.print("이메일: ");
+        String 이메일 = scanner.next();
+        if(아이디.equals("admin") || 이메일.equals("admin@test.com")){System.out.println("관리자");}
+        else{System.out.println("일반 사용자");};
 
         // 15.
-
+        System.out.println("점수를 입력하세요:");
+        int score3 = scanner.nextInt();
+        System.out.printf("등급: %c\n", score3>=90 && score3 <= 100 ? 'A' : score3 >= 80 && score3 < 90 ? 'B' : 'C');
+        
         // 16.
-
+        System.out.println("나이를 입력하세요:"); int age = scanner.nextInt();
+System.out.println(age >= 20 && age <= 29 ? "이벤트 대상입니다." : "이벤트 대상이 아닙니다.");
     }
 }
 
