@@ -55,25 +55,64 @@ public class Practice6 {
 
         // 8.
         String[] products = {"볼펜", "노트", "지우개"};
-        int[] stock = {10, 5, 20};
-        System.out.print("구매할 상품명: ");
-        String 물건 = scanner.next();
-        System.out.print("상품의 개수: ");
-        int 개수 = scanner.nextInt();
-        boolean find = false;   // false 동일한제품명 없다. true 있다.
-        for(int i=0; i<products.length; i++){
-            if(물건.equals(products[i])){   // 입력받은 물건과 i번째 물건과 같으면
-                if(개수 <= stock[i]){        // 입력받은 개수와 i번째 개수가 이하이면
-                    stock[i] -= 개수;       // 개수 차감
+        int[] stock = {10, 5, 20}; 
+        System.out.print("구매할 상품명: ");    
+        String 상품명 = scanner.next();
+        System.out.print("구매할 수량: ");      
+        int 수량 = scanner.nextInt();
+
+        boolean find = false; // false 동일한제품명 없다. true 있다.
+        for( int index = 0 ; index <= products.length - 1 ; index++ ){
+            if( 상품명.equals( products[index] ) ){ // [1]입력받은 상품명 과 index번째 상품명과 같으면 
+                find = true; // 동일한 제품명 찾음 기록
+                if( 수량 <= stock[index] ){ // [2] 입력받은 수량 과 index번째 수량보다 이하이면 
+                    stock[ index ] -= 수량; // 수량 차감 
                 }else{
-                    System.out.println("재고가 부족합니다");
+                    System.out.println("재고가 부족합니다.");
                 }
             }
         }
-        if(find == false){System.out.println("없는 제품입니다.");}
+        if( find == false ) System.out.println("없는 제품명입니다.");
         
         // 9.
-        
+        String[] movieNames = {"히든페이스", "위키드", "글래디에이터2", "청설"};
+        int[] movieRatings = {8, 4, 7, 6};
+        for(int i=0; i<movieNames.length; i++){
+            // [1] 영화 이름들을 하나씩 출력
+            String name = movieNames[i];
+            System.out.print(name);
+            // [2] 별점 출력
+            for(int star =1; star <=10; star++){
+                // 현재 별 보다 i번째 평점이 더 크면
+                if(star<=movieRatings.length){
+                    System.out.print("★ ");
+                }else{
+                    System.out.print("☆ ");
+                }
+            }
+            // 줄바꿈
+            System.out.println();
+        }
+
+        // 10.
+        String[] carNumbers = {"210어7125", "142가7415", "888호8888", "931나8234"};
+        int[] usageMinutes = {65, 30, 140, 420};
+        // [1] 차량번호 출력 
+        for( int i = 0 ; i <= carNumbers.length-1; i++ ){
+            System.out.print( carNumbers[i] +": ");
+            // [2] 주차분 출력 
+            System.out.print( usageMinutes[i]+"분 " );
+            // [3] 주차요금 출력 
+            int fee = 1000;
+            if( usageMinutes[i] >= 30 ){
+                // 30분 제외하고 나누기 10 ( 일단위 제거 ) 곱하기 500원 
+                fee += ( usageMinutes[i]-30 ) / 10 * 500 ;
+                // 만약에 2만원 넘어가면 2만원으로 고정 아니면 그대로
+                fee = fee >= 20000 ? 20000 : fee; 
+            }
+            System.out.println( fee + "원" );
+        }
+
 
     }
 }
