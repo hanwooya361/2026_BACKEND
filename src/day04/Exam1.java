@@ -59,10 +59,10 @@ public class Exam1 {
                     case 0 : System.out.println("b등급 미성년자입니다"); break;
                 }
         }
-        
+
         // 반복문
 
-
+        
 
     }
 }
