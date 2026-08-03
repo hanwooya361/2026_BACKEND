@@ -6,7 +6,7 @@ public class Practice4 {
     public static void main(String[] args) {
         // 1.
         Scanner scanner = new Scanner(System.in);
-        /* System.out.print("첫번째점수: ");
+        System.out.print("첫번째점수: ");
         int 점수1 = scanner.nextInt();
         System.out.print("두번째점수: ");
         int 점수2 = scanner.nextInt();
@@ -16,11 +16,11 @@ public class Practice4 {
 
         // 2.
         System.out.print("첫번쨰정수: ");
-        int 정수1 = scanner.nextInt();
+        int 정수a = scanner.nextInt();
         System.out.print("두번째정수: ");
-        int 정수2 = scanner.nextInt();
-        if(정수1>정수2){System.out.println(정수1);}
-        else{System.out.println(정수2);}
+        int 정수b = scanner.nextInt();
+        if(정수a>정수b){System.out.println(정수a);}
+        else{System.out.println(정수b);}
 
         // 3.
         System.out.print("아이디: ");
@@ -84,7 +84,30 @@ public class Practice4 {
         }else{System.out.println(구매금액);}
 
         // 11.
-        System.out.print("월(1~12)을 입력하세요: "); */ 
+        System.out.print("월(1~12)을 입력하세요: "); 
+        int 계절 = scanner.nextInt();
+        if(계절 == 3 || 계절 == 4 || 계절 == 5){
+            System.out.println("봄 입니다");
+        }else if(계절 == 6 || 계절 == 7 || 계절 == 8){
+            System.out.println("여름 입니다");
+        }else if(계절 == 9 || 계절 == 10 || 계절 == 11){
+            System.out.println("가을 입니다");
+        }else if(계절 == 12 || 계절 == 1 || 계절 == 2){
+            System.out.println("겨울 입니다");
+        }else{System.out.println("잘못된 월입니다");}
+
+        // 12.
+        System.out.println("첫번째 정수");
+        int 정수4 = scanner.nextInt();
+        System.out.println("두번째 정수");
+        int 정수5 = scanner.nextInt();
+        System.out.println("세번째 정수");
+        int 정수6 = scanner.nextInt();
+        if(정수4 > 정수5 && 정수4 > 정수6){
+            System.out.println(정수4);
+        }else if(정수5 > 정수4 && 정수5 > 정수6){
+            System.out.println(정수5);
+        }else{System.out.println(정수6);}
 
         // 13.
         System.out.print("연도를 입력하세요: ");
