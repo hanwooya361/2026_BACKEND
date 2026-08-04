@@ -89,8 +89,8 @@ public class Practice7 {
         B1.accountNumber = "111-222-3333";
         B1.ownerName = "유재석";
         B1.balance = 10000;
-        System.out.printf("입금 후 잔액: [%s] \n", B1.balance+5000);
-        System.out.printf("출금 후 잔액: [%s] \n", B1.balance-3000);
+        System.out.printf("입금 후 잔액: [%s] \n", B1.balance+5000);    // B1.balance += 5000
+        System.out.printf("출금 후 잔액: [%s] \n", B1.balance-3000);    // B1.balance -= 3000
 
         // 5.
         new Product();
