@@ -24,3 +24,22 @@ ALTER TABLE TEST1 CHANGE 필드명1 필드명5 BIGINT;
 RENAME TABLE TEST1 TO NEWTEST1;
 # 7) 테이블 모든 레코드(행/데이터) 삭제, 테이블은 유지
 TRUNCATE TABLE NEWTEST1;    # VS DELETE 차이점
+# ------------------------------------------------------------ #
+# 테이블의 속성/필드 타입   *DBMS회사마다 차이가 있음*
+USE MYDB0805;
+/* CREATE TABLE TEST2(필드명 타입, 필드명 타입, 필드명 타입); */
+CREATE TABLE TEST2(
+    정수필드1 TINYINT, 정수필드2 SMALLINT, 정수필드3 MEDIUMINT, 
+    정수필드4 INT    , 정수필드5 BIGINT  , 정수필드6 INT UNSIGNED,  
+    -- UNSIGNED 부호없다. TINYINT(1바이트 -128~127) --> 0~255
+    실수필드1 FLOAT  , 실수필드2 DOUBLE  , 실수필드3 DECIMAL,
+    -- DECIMAL 문자타입이면서 소수점 오차 없음
+    날짜필드1 DATE   , 시간필드2 TIME    , 날짜시간필드3 DATETIME,
+    문자필드1 CHAR(3)   , 문자필드2 VARCHAR(3) , 문자필드3 TEXT, 문자필드4 LONGTEXT, 
+    -- CHAR(문자 고정길이 ~255) VS VARCHAR(문자 가변길이 ~255?) 
+    -- 속도 CHAR > VARCHAR
+    -- EX) "수박" --> CHAR([수][박][X]) VS VARCHAR([수][박])
+    -- 사진이 포함된 게시물내용 저장시 : 4G 가능한 LONGTEXT 권장
+    논리필드1 BOOLEAN   -- 마지막 필드 타입 뒤로 , 넣지 말기!
+);
+DESCRIBE TEST2; -- 테이블 속성 확인
