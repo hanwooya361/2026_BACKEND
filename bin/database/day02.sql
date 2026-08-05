@@ -24,7 +24,7 @@ ALTER TABLE TEST1 CHANGE 필드명1 필드명5 BIGINT;
 RENAME TABLE TEST1 TO NEWTEST1;
 # 7) 테이블 모든 레코드(행/데이터) 삭제, 테이블은 유지
 TRUNCATE TABLE NEWTEST1;    # VS DELETE 차이점
-# ------------------------------------------------------------ #
+# ----------------------------------------------------------------------- #
 # 테이블의 속성/필드 타입   *DBMS회사마다 차이가 있음*
 USE MYDB0805;
 /* CREATE TABLE TEST2(필드명 타입, 필드명 타입, 필드명 타입); */
@@ -43,3 +43,53 @@ CREATE TABLE TEST2(
     논리필드1 BOOLEAN   -- 마지막 필드 타입 뒤로 , 넣지 말기!
 );
 DESCRIBE TEST2; -- 테이블 속성 확인
+
+# ----------------------------------------------------------------------- #
+# 속성/필드 제약조건
+CREATE TABLE TEST3(
+    필드명1 TINYINT NOT NULL,    -- 해당 필드/속성에는 NULL 저장할 수 없도록 설정   * NULL이면 오류발생 *
+    필드명2 SMALLINT UNIQUE,     -- 해당 필드/속성에는 중복값을 저장할 수 없도록 설정   * 값이 다른 레코드와 같다면 오류발생 *
+    필드명3 INT DEFAULT 100,     -- 해당 필드/속성에 레코드 생성시 기본값 100 대입된다
+    필드명4 DATETIME DEFAULT NOW(), -- EX) 레코드 삽입시 현재날짜/시간 자동 대입
+    필드명5 BIGINT AUTO_INCREMENT,
+    CONSTRAINT PRIMARY KEY(필드명5) -- 특정 필드/속성 PK로 설정한다.
+    -- AUTO_INCREMENT : 레코드(행) 삽입 시 자동으로 순서번호 설정, 1 2 3 4 5 ~
+    -- PRIMARY KEY(PK) : 기본/식별 키 , 식별 가능한 고유한 값을 갖는 필드(NOT NULL + UNIQUE 내장되어있음)
+        -- 힉번,            사번,       제품코드/번호 등
+    -- FOREIGN KEY(FK) : 참조/외래 키(PK가 다른테이블에 위치한 경우), 다른 테이블의 기본키 참조하는 키 
+        -- 수강신청학학번, 급여지급사번, 판매된제품코드 
+        -- 참조 옵션 : PK가 삭제/수정된 경우 FK가 어떻게??
+            -- ON DELETE/UPDATE CASCADE     : PK가 삭제되면 FK도 같이 삭제/수정
+            -- ON DELETE/UPDATE SET NULL    : PK가 삭제/수정되면 FK는 NULL로 수정
+            -- ON DELETE/UPDATE RESTRICT    : (생략시 기본값) PK가 FK로부터 참조 중이면 삭제/수정 불가능
+);
+CREATE TABLE TEST4(
+    필드명1 BIGINT, 
+    CONSTRAINT FOREIGN KEY(필드명1) REFERENCES TEST3(필드명5) ON DELETE CASCADE ON UPDATE CASCADE  -- REFERENCES 참조
+);
+-- MYSQL WORKBENCH OR VSCODE에서 DB서버 연동 가능
+-- NYSQL WORKBENCH(ERD 다이어그램 자동생성)
+
+# 예제 회원제 게시판 서비스 ----------------------------------------------- #
+DROP DATABASE IF EXISTS BOARDSERVICE;   # 1) DB 존재하면 삭제
+CREATE DATABASE BOARDSERVICE;           # 2) DB 생성
+USE BOARDSERVICE;
+CREATE TABLE MEMBER(    -- 4) 회원테이블 생성한다
+    MNO INT AUTO_INCREMENT,     -- 자동 회원번호
+    CONSTRAINT PRIMARY KEY(MNO),    -- 회원번호 PK 설정
+    MID VARCHAR(30) NOT NULL UNIQUE,    -- 회원아이디면서 최대30글자, 공백 불가능, 중복 불가능
+    MPWD VARCHAR(20) NOT NULL,  -- 회원비밀번호이면서 최대20글자, 공백 불가능, 중복 가능
+    MNAME VARCHAR(10) NOT NULL, -- 회원닉네임
+    MDATE DATETIME DEFAULT NOW() -- 회원가입날짜/시간 , 현재날짜/시간 자동으로 기본값 설정
+);
+CREATE TABLE BOARD(     -- 5) 게시물테이블 생성
+    BNO INT AUTO_INCREMENT,
+    CONSTRAINT PRIMARY KEY(BNO), -- 게시물번호 PK 설정  *관례적으로 테이블1개당 PK1개 이상 권장*
+    BTITLE VARCHAR(255) NOT NULL, -- 게시물제목
+    BCONTENT LONGTEXT,  -- 게시물내용, 대용량(사진)포함한 최대 4G
+    BDATE DATETIME DEFAULT NOW(), -- 게시물작성날짜/시간
+    BVIEW INT DEFAULT 0, -- 게시물조회수
+    MNO INT,    -- 작성자(MID/회원아이디가 아니고 MNO/회원번호)
+    CONSTRAINT FOREIGN KEY(MNO) REFERENCES MEMBER(MNO) 
+        ON DELETE CASCADE    -- 회원이 탈퇴/삭제 하면 그 회원이 작성한 게시물도 같이 삭제   
+);
