@@ -29,21 +29,23 @@ class UserList{
     String userId;
     String userPw;
     String userName;
-    public UserList(int pk_userNo, String userId, String userPw, String userName) {
+    int fk_roloNo;
+    public UserList(int pk_userNo, String userId, String userPw, String userName, int fk_roloNo) {
         this.pk_userNo = pk_userNo;
         this.userId = userId;
         this.userPw = userPw;
         this.userName = userName;
+        this.fk_roloNo = fk_roloNo;
     }
-    
 }
 class StudyType{
+    int pk_studyTypeNo;
     String studyTypeName;
-
-    public StudyType(String studyTypeName) {
+    public StudyType(int pk_studyTypeNo, String studyTypeName) {
+        this.pk_studyTypeNo = pk_studyTypeNo;
         this.studyTypeName = studyTypeName;
     }
-    
+
 }
 class Role{
     int pk_roleNo;
