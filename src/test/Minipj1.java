@@ -12,9 +12,8 @@ class Study{
     String detail;
     String date;
 
-    public Study(int contentNo, String title, int fk_userNo, int fk_categoryNo, int fk_studyTypeNo, int maxMember,
+    public Study(String title, int fk_userNo, int fk_categoryNo, int fk_studyTypeNo, int maxMember,
             String detail, String date) {
-        this.contentNo = contentNo;
         this.title = title;
         this.fk_userNo = fk_userNo;
         this.fk_categoryNo = fk_categoryNo;
@@ -31,19 +30,16 @@ class User{
     String userPw;
     String userName;
     int fk_roloNo;
-    public User(int pk_userNo, String userId, String userPw, String userName, int fk_roloNo) {
-        this.pk_userNo = pk_userNo;
+    public User(String userId, String userPw, String userName) {
         this.userId = userId;
         this.userPw = userPw;
         this.userName = userName;
-        this.fk_roloNo = fk_roloNo;
     }
 }
 class StudyType{
     int pk_studyTypeNo;
     String studyTypeName;
-    public StudyType(int pk_studyTypeNo, String studyTypeName) {
-        this.pk_studyTypeNo = pk_studyTypeNo;
+    public StudyType( String studyTypeName) {
         this.studyTypeName = studyTypeName;
     }
 
@@ -51,8 +47,7 @@ class StudyType{
 class Role{
     int pk_roleNo;
     String roleName;
-    public Role(int pk_roleNo, String roleName) {
-        this.pk_roleNo = pk_roleNo;
+    public Role(String roleName) {
         this.roleName = roleName;
     }
     
@@ -60,8 +55,7 @@ class Role{
 class Category{
     int pk_categoryNo;
     String categoryName;
-    public Category(int pk_categoryNo, String categoryName) {
-        this.pk_categoryNo = pk_categoryNo;
+    public Category(String categoryName) {
         this.categoryName = categoryName;
     }
 }
@@ -123,7 +117,37 @@ public class Minipj1 {
                 System.out.print("등록일을 입력해주세요(XXXX년XX월XX일) : ");   String date = scan.nextLine();
 
                 Study study1 = new Study(title, fk_userNo, fk_categoryNo, fk_studyTypeNo, maxMember, detail, date);
-            }
+                boolean result = studies.save(study1);
+
+                if(result){System.out.println("게시물 작성 성공");}
+                else{System.out.println("게시물 작성 실패");}
+                
+            }else if(ch==2){
+                Study[] result = studies.findAll();
+                for(Study study1 : result){
+                    if(study1 != null){
+                        System.out.printf("제목 : %s , 회원번호(1~4) : %d 공부카테고리(1~10) : %d , 진행방식(1~4) : %d 모집인원 : %d , 상세내용 : %s 등록일을 입력해주세요(XXXX년XX월XX일) : %s \n", study1.title, study1.fk_userNo, study1.fk_categoryNo, study1.fk_studyTypeNo, study1.maxMember, study1.detail, study1.date );
+                    }
+                }
+            }else if(ch==3){
+                scan.nextLine();
+                System.out.print("ID : ");   String userId = scan.nextLine();
+                System.out.print("PW : ");   String userPw = scan.nextLine();
+                System.out.print("이름 : ");   String userName = scan.nextLine();
+                User user = new User(userId, userPw, userName);
+                boolean result = users.save(user);
+
+                if(result){System.out.println("회원가입 성공");}
+                else{System.out.println("회원가입 실패");}
+
+            }else if (ch == 4) {
+                User[] result = users.findAll();
+                for (User user : result) {
+                    if (user != null) {
+                        System.out.printf("ID : %s , PW : %s , 이름 : %s \n", user.userId, user.userPw, user.userName);
+                    }
+                }
         }
     }
+}
 }
