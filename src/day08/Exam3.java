@@ -29,6 +29,6 @@ class D{
     // * static 프로그램 시작시 할당되고 프로그램 종료시 사라짐 *
     // - public static final : 상수
     public static final int 상수 = 30;
-    // -- 주의할점 : static 우선할당이므로 static 아닌 변수/메소드 접근
+    // -- 주의할점 : static 가진 메소드에서 static 아닌 변수/메소드 접근
     // --> 해결방안 : 인스턴스(new)/객체(추상) 통해 멤버변수/메소드 사용
 }
