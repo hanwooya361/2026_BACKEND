@@ -160,3 +160,30 @@
     6. import: 다른 클래스 호출한 경우 .java파일 상단에 호출한 클래스의 패키지/경로 표시
         * 단) java.lang 패키지 제외( System, String, Math )한 다른 클래스인 경우
     
+[MVC 패턴]
+    1. 정의 : SW 개발에서 사용되는 디자인패턴으로 3가지 주요 역할 분리해 코드의 모듈화(조각)한다
+    2. 목적 : 협업간 코드와 파일들을 MVC패턴에 따라 구성해 효율성 높인다
+    3. 장점 : 유지보수, 모듈화, 단일책임기능(SRP:단일책임원칙 - 객체지향 5대원칙(SQLID)) 등
+    4. 단점 : 분리함에따라 관리 복잡도가 높다
+    5. 예시 : 
+        1인식당 : 사장님이 혼자서 서빙, 요리, 재료관리
+        직원이있는 식당 : 서빙직원, 요리직원, 재료관리직원 등등 각 역할별로 담당.   - 단일 책임 원칙
+    6. 사용처 : 웹/앱 백엔드 프레임워크에서 주로 사용
+    7. 레이어/계층
+        VIEW            : 입출력 담당, HTML/CSS/JS/REACT/FLUTTER 등
+        CONTROLLER      : MODEL 과 VIEW 사이의 제어/로직/유효성검사/전달 등 담당,   JAVA/PYTHON/NODE.JS
+        MODEL           : 데이터 관리 담당, JAVA/PYTHON/NODE.JS
+    8. 이동객체
+        DTO : 서로 다른 레이어/계층 간에 데이터 이동 객체, setter and getter 지원
+        VO : 서로 다른 레이어/계층 간에 데이터 읽기 객체, getter만 지원
+    9. 흐름
+        게시물쓰기 : view --DTO/VO--> controller --DTO/VO--> DAO/REPOSITORY --> DB(SQL)
+        게시물조회 : view <--DTO/VO-- controller <--DTO/VO-- DAO/REPOSITORY --> DB(SQL)
+    10. 패키지구성
+        프로젝트폴더
+            -> controller 폴더
+            -> view 폴더
+            -> model 폴더
+                -> dao 폴더
+                -> dto 폴더
+            -> AppStart 클래스
