@@ -32,7 +32,7 @@ public class BoardDao {
     }
 
     // 수정
-    public boolean Update(BoardDto boardDto){
+    public boolean update(BoardDto boardDto){
         for(BoardDto dt : boardList){
             if(dt.getNumber().equals(boardDto.getNumber())){
                 dt.setPeople(boardDto.getPeople());
@@ -43,17 +43,12 @@ public class BoardDao {
     }
 
     // 삭제
-    public boolean Delete(BoardDto boardDto){
-        BoardDto deletedt = null;
+    public boolean delete(BoardDto boardDto){
         for(BoardDto dt : boardList){
             if(dt.getNumber().equals(boardDto.getNumber())){
-                deletedt = dt;
-                break;
+                boardList.remove(dt);
+                return true;
             }
-        }
-        if(deletedt != null){
-            boardList.remove(deletedt);
-            return true;
         }
         return false;
     }

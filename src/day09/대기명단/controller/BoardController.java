@@ -33,14 +33,14 @@ public class BoardController {
     }
 
     // 수정
-    public boolean Update(BoardDto boardDto){
-        boolean result = bd.Update(boardDto);
+    public boolean update(BoardDto boardDto){
+        boolean result = bd.update(boardDto);
         return result;
     }
 
     // 삭제
-    public boolean Delete(BoardDto boardDto){
-        boolean result = bd.Update(boardDto);
+    public boolean delete(BoardDto boardDto){
+        boolean result = bd.delete(boardDto);
         return result;
     }
 }

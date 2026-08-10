@@ -19,21 +19,19 @@ public class BoardView {
     // [*] 메인 입출력
     public void run(){
         while(true){    // 무한루프
-            System.out.print("1.대기명단등록 2.대기명단 전체조회 3.대기명단 수정 4. 대기명단 삭제 : ");
+            System.out.println("1.등록 2.전체조회");
             int ch = scan.nextInt();
             if(ch==1) {save();}
             else if(ch==2) {findAll();}
-            else if(ch==3) {Update();}
-            else if(ch==4) {Delete();}
            }
     }
 
     // [1] 게시물쓰기 입출력
     public void save(){
         // 1. 입력받기
-        System.out.print("내용: ");
+        System.out.println("내용: ");
         String 내용 = scan.next();
-        System.out.print("작성자: ");
+        System.out.println("작성자: ");
         String 작성자 = scan.next();
         // 2. 객체화
         BoardDto boardDto = new BoardDto(내용, 작성자);
@@ -52,5 +50,6 @@ public class BoardView {
         for(BoardDto board : result){
             System.out.println(board.getWriter()+":"+board.getContent());
         }
+
     }
 }

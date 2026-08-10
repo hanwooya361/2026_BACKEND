@@ -50,14 +50,17 @@ public class Practice11 {
 
         // 7.
         Scanner scanner = new Scanner(System.in);
-        System.out.println("문자를 입력해주세요: ");
-        String 문자 = scanner.next();
         ArrayList<String> text = new ArrayList<>();
-        text.add(문자);
-        if(문자.equals("종료")){
-            break;
-            System.out.println(문자);   
+        while(true){
+            System.out.print("문자를 입력해주세요: ");
+            String 문자 = scanner.next();
+            if(문자.equals("종료")){ 
+                System.out.println(text);
+                break;
+            }
+            text.add(문자);
         }
+        
 
         // 8.
         ArrayList<String> 수업 = new ArrayList<>();
