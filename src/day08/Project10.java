@@ -24,6 +24,10 @@ class Score{
 class BankAccount{
     private String accountNumber;
 
+    public BankAccount(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -32,18 +36,17 @@ class BankAccount{
 class CircleCalculator{
     final double PI = 3.14159;
 
-    public double printCircleArea(int x){
-        return (x * x * PI);
+    public void printCircleArea(int x) {
+        System.out.println(x * x * PI);
     }
 }
 // 5.
 class TicketMachine{
     static int totalTickets = 0;
 
-    public int issueTicket(){
+    public void issueTicket(){
         totalTickets++;
         System.out.println("티켓 1장을 발권했습니다.");
-        return totalTickets;
     }
 
     static void printTotalTickets(){
@@ -70,13 +73,12 @@ public class Project10 {
        
 
         // 3.
-        BankAccount b1 = new BankAccount();
+        BankAccount b1 = new BankAccount("123-456");
         System.out.println(b1.getAccountNumber());
         
         // 4.
         CircleCalculator c1 = new CircleCalculator();
         c1.printCircleArea(5);
-        System.out.println(c1.printCircleArea(5));
 
         // 5.
         TicketMachine t1 = new TicketMachine();

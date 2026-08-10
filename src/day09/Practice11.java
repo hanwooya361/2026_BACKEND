@@ -15,15 +15,13 @@ public class Practice11 {
         ArrayList<String> fruits = new ArrayList<>();
         fruits.add("사과"); fruits.add("바나나"); fruits.add("딸기");
         for (int i = 0; i < fruits.size(); i++) {
-            System.out.println("인덱스 " + i + ": " + fruits.get(i));
+            System.out.println(i + ": " + fruits.get(i));
         }
         // 3.
         ArrayList<String> fruits1 = new ArrayList<>();
         fruits1.add("사과"); fruits1.add("바나나"); fruits1.add("딸기");
-        for(String str : fruits1){
-            System.out.println(fruits1.get(0));
-            System.out.println(fruits1.get(1));
-            System.out.println(fruits1.get(2));
+        for(String fruit : fruits1){
+            System.out.println(fruit);
         }
         // 4.
         ArrayList<String> alpha = new ArrayList<>();
@@ -43,29 +41,23 @@ public class Practice11 {
         System.out.println(study);
         // 6.
         ArrayList<Book> library = new ArrayList<>();
-        Book b1 = new Book();
-        Book b2 = new Book();
-        Book b3 = new Book();
-        b1.title = "조현우"; b1.author = "조현우";
-        b2.title = "박현민"; b2.author = "박현민";
-        b3.title = "김지환"; b3.author = "김지환";
-        library.add(b1);
-        library.add(b2);
-        library.add(b3);
+        library.add(new Book("조현우", "조현우"));
+        library.add(new Book("조현우1", "조현우1"));
+        library.add(new Book("조현우2", "조현우2"));
         for(Book book : library){
-            System.out.println(book.title + book.author);
+            System.out.println(book.getTitle() + ":" + book.getAuthor());
         }
 
-        /* // 7.
+        // 7.
         Scanner scanner = new Scanner(System.in);
         System.out.println("문자를 입력해주세요: ");
         String 문자 = scanner.next();
         ArrayList<String> text = new ArrayList<>();
         text.add(문자);
-        if(문자=="종료"){
-            System.out.println(문자);
+        if(문자.equals("종료")){
             break;
-        } */
+            System.out.println(문자);   
+        }
 
         // 8.
         ArrayList<String> 수업 = new ArrayList<>();
@@ -78,8 +70,29 @@ public class Practice11 {
     }
 }
 class Book{
-    String title;
-    String author;
+    private String title;
+    private String author;
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public String getAuthor() {
+        return author;
+    }
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+    @Override
+    public String toString() {
+        return "Book [title=" + title + ", author=" + author + "]";
+    }
+    
 }
 /*[문제 1] String 타입의 요소를 저장할 수 있는 ArrayList를 nameList 라는 이름으로 생성하세요.
 1. .add() 메소드를 사용하여 "유재석", "강호동", "신동엽" 세 개의 이름을 리스트에 추가하세요.
