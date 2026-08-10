@@ -19,7 +19,7 @@ public class BoardView {
     // [*] 메인 입출력
     public void run(){
         while(true){    // 무한루프
-            System.out.println("1.등록 2.전체조회");
+            System.out.print("1.등록 2.전체조회: ");
             int ch = scan.nextInt();
             if(ch==1) {save();}
             else if(ch==2) {findAll();}
@@ -29,9 +29,9 @@ public class BoardView {
     // [1] 게시물쓰기 입출력
     public void save(){
         // 1. 입력받기
-        System.out.println("내용: ");
+        System.out.print("내용: ");
         String 내용 = scan.next();
-        System.out.println("작성자: ");
+        System.out.print("작성자: ");
         String 작성자 = scan.next();
         // 2. 객체화
         BoardDto boardDto = new BoardDto(내용, 작성자);
