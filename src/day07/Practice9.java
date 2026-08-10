@@ -54,16 +54,21 @@ class Visualizer{
         return result;
     }
 }
-/* class ParkingLot{
+class ParkingLot{
     int calculateFee(int x){
         int fee = 1000;
         if(x < 30){
             return 1000;
         }else if(x > 30){
-
+            int PlusMinutes = x - 30;
+            int PlusFee = (PlusMinutes + 9) / 10 * 500;
+            fee += PlusFee;
+            if(fee > 20000) fee = 20000;
+            return fee;
         }
+        return 1000;
     }
-} */
+}
 public class Practice9 {
     public static void main(String[] args) {
         // 1. 
@@ -105,7 +110,10 @@ public class Practice9 {
         System.out.println(v1.getStars(5));
 
         // 8.
-
+        ParkingLot pk1 = new ParkingLot();
+        System.out.println(pk1.calculateFee(65));
+        System.out.println(pk1.calculateFee(140));
+        System.out.println(pk1.calculateFee(500));
     }
 }
 /* [문제 1] Printer 클래스를 만드세요.
