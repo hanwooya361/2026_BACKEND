@@ -63,7 +63,8 @@ class ParkingLot{
             int PlusMinutes = x - 30;
             int PlusFee = (PlusMinutes + 9) / 10 * 500;
             fee += PlusFee;
-            if(fee > 20000) fee = 20000;
+            if(fee > 20000) 
+            fee = 20000;
             return fee;
         }
         return 1000;
