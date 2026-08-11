@@ -65,17 +65,32 @@ INSERT INTO orders VALUES(NULL, 1010, '김민준', 1, '2023-07-03');
 INSERT INTO orders VALUES(NULL, 1004, '최수아', 2, '2023-07-10');
 
 -- [문제 1 ] orders 테이블에서 고객(customer) 목록을 중복 없이 조회하는 SQL을 작성하세요. (GROUP BY 사용)
+SELECT customer FROM orders GROUP BY customer;
 -- [문제 2 ] books 테이블에서 장르(genre) 목록을 중복 없이 조회하는 SQL을 작성하세요.
+SELECT GENRE FROM BOOKS GROUP BY GENRE; 
 -- [문제 3 ] orders 테이블에서 도서번호(book_id)별 주문이 존재하는 도서 목록을 조회하세요. (중복 제거)
+SELECT BOOK_ID 도서번호 FROM ORDERS GROUP BY BOOK_ID;
 -- [문제 4 ] books 테이블에서 저자(author)별로 그룹화하여 저자 목록만 조회하세요.
+SELECT AUTHOR 저자  FROM BOOKS GROUP BY AUTHOR;
 -- [문제 5 ] orders 테이블에서 전체 주문 건수를 구하세요. (COUNT(*))
+SELECT COUNT(*) 전체주문건 FROM ORDERS;
 -- [문제 6 ] orders 테이블에서 전체 주문수량(order_qty)의 합계를 구하세요. (SUM())
+SELECT SUM(order_qty) 주문수량합계 FROM ORDERS;
 -- [문제 7 ] books 테이블에서 도서 가격(price)의 평균을 구하세요. (AVG())
+SELECT AVG(PRICE) 가격평균 FROM BOOKS;
 -- [문제 8 ] books 테이블에서 최고가/최저가 도서 가격을 각각 구하세요. (MAX(), MIN())
+SELECT MAX(PRICE) 최고가 , MIN(PRICE) 최저가 FROM BOOKS;
 -- [문제 9 ] books 테이블에서 재고(stock)가 NULL이 아닌 도서 수를 구하세요. (COUNT(stock))
+SELECT COUNT(STOCK) 재고 FROM BOOKS;
 -- [문제 10 ] orders 테이블에서 고객별 주문 건수를 조회하세요. (customer, count)
+SELECT CUSTOMER 고객 , COUNT(*) 주문건 FROM ORDERS GROUP BY CUSTOMER;
 -- [문제 11 ] orders 테이블에서 도서번호(book_id)별 총 주문수량 합계를 조회하세요. (book_id, sum)
+SELECT BOOK_ID 도서번호 , SUM(order_qty) 총주문수량 FROM ORDERS GROUP BY BOOK_ID;
 -- [문제 14 ] orders에서 고객별 총 주문수량 합계가 5 이상인 고객만 조회하세요. ( 출력: customer, 총주문수량, 조건: HAVING 사용 )
+SELECT CUSTOMER 고객 , SUM(order_qty) 총주문수량 FROM ORDERS GROUP BY CUSTOMER HAVING 총주문수량 >= 5;
 -- [문제 15 ] orders에서 도서번호(book_id)별 주문 건수가 3회 이상인 도서만 조회하세요.( 출력: book_id, 주문건수 )
+SELECT BOOK_ID 도서번호 , COUNT(*) 주문건 FROM ORDERS GROUP BY BOOK_ID HAVING 주문건 >= 3;
 -- [문제 17 ] books 테이블에서 가격(price) 내림차순으로 정렬하여 조회하세요.
+SELECT * FROM BOOKS ORDER BY PRICE DESC;
 -- [문제 18 ] books 테이블에서 가격(price) 내림차순 정렬 후 상위 3권만 조회하세요. (ORDER BY + LIMIT)
+SELECT * FROM BOOKS ORDER BY PRICE DESC LIMIT 0, 3;

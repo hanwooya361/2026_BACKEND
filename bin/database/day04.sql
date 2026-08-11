@@ -47,3 +47,48 @@ INSERT INTO buy VALUES
 # 샘플 확인
 select * from member;
 select * from buy;
+
+# [1] 그룹절
+SELECT * FROM BUY;  -- 전체조회
+SELECT * FROM BUY GROUP BY BPNAME;  --제품명(BPNAME) 기준으로 그룹하고 모든 필드 조회[오류]
+SELECT BPNAME FROM BUY GROUP BY BPNAME; --제품명(BPNAME) 기준으로 그룹하고 BPNAME 필드만 조회
+# * 그룹당 단 하나의 대표값만 조회
+SELECT BPNAME , MID FROM BUY GROUP BY BPNAME;   -- 오류
+
+# [2] 기초 집계함수
+SELECT SUM(BAMOUNT) FROM BUY;   -- SUM(필드명) 합계
+SELECT AVG(BAMOUNT) FROM buy;   -- AVG(필드명) 평균
+SELECT MIN(BAMOUNT) FROM BUY;   -- MIN(필드명) 최솟값
+SELECT MAX(BAMOUNT) FROM BUY;   -- MAX(필드명) 최댓값
+SELECT COUNT(BAMOUNT) FROM BUY; -- COUNT(필드명) 레코드수(NULL 제외)
+SELECT COUNT(*) FROM BUY;       -- COUNT(*) 레코드수(NULL 포함)
+
+# [3] 그룹절과 집계함수 , 그룹(~~별, ~~끼리)    ,   그룹필드명 집계함수
+-- 1) MID 기준으로 그룹해 총 구매수량(BAMOUNT)
+SELECT MID , SUM(BAMOUNT) 합계 FROM BUY GROUP BY MID; 
+-- 2) MID 기준으로 회원별 총 구매금액(수량*가격)
+SELECT MID , SUM(BAMOUNT * BPRICE) 구매금액 FROM BUY GROUP BY MID;
+-- 3) MID 기준으로 회원별 평균 구매금액
+SELECT MID , AVG(BAMOUNT * BPRICE) 구매금액 FROM BUY GROUP BY MID;
+-- 4) MID별 구매 횟수
+SELECT MID, COUNT(*) FROM BUY GROUP BY MID;
+
+# [4] 그룹절의 조건절, WHERE 그룹*전* 조건 [VS] HAVING 그룹*후*조건
+SELECT * FROM buy WHERE BAMOUNT > 3;    -- 구매수량이 3초과이면
+SELECT MID , SUM(BAMOUNT) 총구매수량 FROM BUY GROUP BY MID HAVING 총구매수량 > 5;
+# WHERE 절에서 필드의 별칭 사용X WHY? WHERE이 먼저 처리
+SELECT MID , SUM(BAMOUNT) 총구매수량 FROM BUY WHERE 총구매수량 > 5 GROUP BY MID; -- 오류
+
+# [5] ORDER BY 정렬 , DESC 내림차순(321,다나가,CBA, 8-11 8-10) , ASC 오름차순(기본값)
+SELECT * FROM MEMBER ORDER BY mdebut; 
+SELECT * FROM MEMBER ORDER BY mdebut DESC;
+# [*] 다중정렬이란? 첫번쨰 정렬 후 첫번째 정렬 필드 기준으로 중복이 존재하는 경우 중복끼리 2차정렬
+-- 지역 먼저 정렬하고 만약 지역 필드내 동일한 값끼리 2차정렬(MDEBUT)
+SELECT * FROM MEMBER ORDER BY maddr DESC, MDEBUT ASC;  
+
+# [6] LIMIT : 결과 레코드 제한, *페이징처리*
+SELECT * FROM member;   -- 10개
+SELECT * FROM member LIMIT 2;   -- 1~2 (2)
+SELECT * FROM member LIMIT 0, 2;    -- 1~2(0번부터2개)
+SELECT * FROM member LIMIT 5, 5;    -- 5번부터 5개, 활용 1페이지(0, 5개) 2페이지(0+5,5개)
+-- [순서] SELECT 필드명 FROM 테이블명 WHERE 조건 GROUP BY 그룹필드 HAVING 그룹조건 ORDER BY 정렬필드 LIMIT 시작인덱스,개수;
