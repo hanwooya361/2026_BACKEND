@@ -23,14 +23,12 @@ class Cat extends Animal{
     }
 }
 
-// 3.
+// 3. 생성자내무에는 super() 생략시 자동으로 적용 즉] super() 키워드는 부모 생성자 가리킴
 class Machine{
     Machine(){System.out.println("상위탄생");}
-    void show(){System.out.println("상위메소드 실행");}
 }
 class Computer extends Machine{
     Computer(){System.out.println("하위탄생");}
-    void show(){System.out.println("하위메소드 실행");}
 }
 // 4.
 class Figure{
@@ -39,9 +37,72 @@ class Figure{
 class Triangle extends Figure{
 
 }
+// 5.
+class Shape{
+    void draw(){System.out.println("도형을 그립니다");}
+}
+class Circle extends Shape{
+    @Override
+    void draw(){System.out.println("원을 그립니다");}
+}
+// 6.
+class Vehicle{
+
+}
+class Bus extends Vehicle{
+    void checkFare(){System.out.println("요금을 확인합니다");}
+}
+// 7.
+class Beverage{
+    void dink(){System.out.println("음료를 마십니다");}
+}
+class Coke extends Beverage{
+    @Override
+    void dink(){System.out.println("콜라를 마십니다");}
+}
+class Coffee extends Beverage{
+    @Override
+    void dink(){System.out.println("커피를 마십니다");}
+}
+// 8.
+class Weapon{
+    void attack(){System.out.println("무기로 공격합니다");}
+}
+class Sword extends Weapon{
+    @Override
+    void attack(){System.out.println("검로 공격합니다");}
+}
+class Gun extends Weapon{
+    @Override
+    void attack(){System.out.println("총로 공격합니다");}
+}
+class Character{
+    void use(Weapon weapon){
+        weapon.attack();
+    }
+}
+// 9.
+class SuperClass{
+    String name = "상위";
+    void method(){System.out.println("상위메소드");}
+}
+class SubClass extends SuperClass{
+    String name = "하위";
+    void method(){System.out.println("하위메소드");}
+}
+// 10.
+class Device{
+
+}
+class Electronic extends Device{
+
+}
+class Laptop extends Electronic{
+
+}
 public class Practice12 {
     public static void main(String[] args) {
-        // 1.
+        // 1. 상속받은 클래스는 상위클래스의 멤버변수/메소드를 물려받음
         Student 학생 = new Student();
         학생.studentId = 20210959;
         학생.name = "조현우";     
@@ -51,14 +112,50 @@ public class Practice12 {
         Cat 고양이 = new Cat();
         고양이.makeSound();
 
-        // 3.
-        Machine m1 = new Machine();
-        m1.show();
+        // 3. 컴퓨터가 만들어지기 전 머신이 먼저 생성
         Computer c1 = new Computer();
-        c1.show();
+
         // 4.
         Triangle t1 = new Triangle();
 
+        // 5.
+        Shape shape = new Circle();
+        shape.draw();
+        // 상위클래스의 메소드 선언부가 모두 동일하기때문에 오버라이딩을 선언
+        
+        // 6.
+        Vehicle vehicle = new Bus();
+        if(vehicle instanceof Bus){
+            Bus bus = (Bus)vehicle;
+            bus.checkFare();
+        }
+
+        // 7.
+        Beverage[] beverage = new Beverage[2];
+        beverage[0] = new Coke();
+        beverage[1] = new Coffee();
+        for(Beverage beverage1 : beverage){
+            beverage1.dink();
+        }
+
+        // 8.
+        Sword sword = new Sword();
+        Gun gun = new Gun();
+        Character character = new Character();
+        character.use(sword);
+        character.use(gun);
+
+        // 9.
+        SuperClass obj = new SubClass();
+        // obj.name;    
+        obj.method();   
+
+        // 10.
+        Laptop laptop = new Laptop();
+        Electronic electronic = (Electronic)laptop;
+        System.out.println(electronic instanceof Electronic);
+        Device device = (Device)laptop;
+        System.out.println(device instanceof Device);
     }
 }
 /*[문제 1] 기본 상속
