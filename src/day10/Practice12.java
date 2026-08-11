@@ -32,10 +32,8 @@ class Computer extends Machine{
 }
 // 4.
 class Figure{
-
 }
 class Triangle extends Figure{
-
 }
 // 5.
 class Shape{
@@ -70,11 +68,11 @@ class Weapon{
 }
 class Sword extends Weapon{
     @Override
-    void attack(){System.out.println("검로 공격합니다");}
+    void attack(){System.out.println("검으로 공격합니다");}
 }
 class Gun extends Weapon{
     @Override
-    void attack(){System.out.println("총로 공격합니다");}
+    void attack(){System.out.println("총으로 공격합니다");}
 }
 class Character{
     void use(Weapon weapon){
@@ -115,9 +113,9 @@ public class Practice12 {
         // 3. 컴퓨터가 만들어지기 전 머신이 먼저 생성
         Computer c1 = new Computer();
 
-        // 4.
-        Triangle t1 = new Triangle();
-
+        // 4. 업캐스팅
+        Figure figure = new Triangle(); // 하위가 생성되면 상위도 같이 생성됨
+        
         // 5.
         Shape shape = new Circle();
         shape.draw();
@@ -147,8 +145,8 @@ public class Practice12 {
 
         // 9.
         SuperClass obj = new SubClass();
-        // obj.name;    
-        obj.method();   
+        // obj.name;    // 필드는 오버라이드가 안됨
+        obj.method();   // 메서드는 오버라이드가 되었기떄문에 상속받은 subclass의 메소드가 실행됨
 
         // 10.
         Laptop laptop = new Laptop();
