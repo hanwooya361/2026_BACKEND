@@ -52,15 +52,15 @@ class Bus extends Vehicle{
 }
 // 7.
 class Beverage{
-    void dink(){System.out.println("음료를 마십니다");}
+    void drink(){System.out.println("음료를 마십니다");}
 }
 class Coke extends Beverage{
     @Override
-    void dink(){System.out.println("콜라를 마십니다");}
+    void drink(){System.out.println("콜라를 마십니다");}
 }
 class Coffee extends Beverage{
     @Override
-    void dink(){System.out.println("커피를 마십니다");}
+    void drink(){System.out.println("커피를 마십니다");}
 }
 // 8.
 class Weapon{
@@ -79,7 +79,7 @@ class Character{
         weapon.attack();
     }
 }
-// 9.
+// 9. 멤버변수는 각각, 메소드는 공유
 class SuperClass{
     String name = "상위";
     void method(){System.out.println("상위메소드");}
@@ -133,7 +133,7 @@ public class Practice12 {
         beverage[0] = new Coke();
         beverage[1] = new Coffee();
         for(Beverage beverage1 : beverage){
-            beverage1.dink();
+            beverage1.drink();
         }
 
         // 8.
@@ -143,9 +143,9 @@ public class Practice12 {
         character.use(sword);
         character.use(gun);
 
-        // 9.
-        SuperClass obj = new SubClass();
-        // obj.name;    // 필드는 오버라이드가 안됨
+        // 9. 멤버변수는 오버라이딩이 아니다
+        SuperClass obj = new SubClass();    // 업캐스팅(자동타입변환) sub-->super
+        System.out.println(obj.name);     // 멤버변수는 오버라이드가 없다
         obj.method();   // 메서드는 오버라이드가 되었기떄문에 상속받은 subclass의 메소드가 실행됨
 
         // 10.
