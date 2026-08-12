@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import 종합예제.model.dao.BoardDao;
 import 종합예제.model.dao.IBaseDao;
 import 종합예제.model.dto.BoardDto;
+import 종합예제.model.dto.ProductDto;
 
 public class BoardController {
     private BoardController() {}
@@ -18,10 +19,16 @@ public class BoardController {
         boolean result = ib.save(boardDto);
         return result;
     }
-
+    
     public ArrayList<BoardDto> findAll() {
         // TODO 2: DAO의 findAll() 호출하여 결과 반환
-        ArrayList<Object> result = ib.findAll();
+        ArrayList<Object> objList = ib.findAll();       
+        ArrayList<BoardDto> result = new ArrayList<>();
+
+        for(Object obj : objList){
+            result.add((BoardDto)(obj));
+        }
         return result;
     }
+
 }

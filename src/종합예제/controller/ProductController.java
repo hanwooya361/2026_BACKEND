@@ -21,7 +21,12 @@ public class ProductController {
 
     public ArrayList<ProductDto> findAll() {
         // TODO 2: DAO의 findAll() 호출하여 결과를 받고 반환
-        ArrayList<Object> list = ib.findAll();
-        return list;
+        ArrayList<Object> objList = ib.findAll();
+        ArrayList<ProductDto> result = new ArrayList<>();
+
+        for(Object obj : objList){
+            result.add((ProductDto)obj);
+        }
+        return result;
     }
 }

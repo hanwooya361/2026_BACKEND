@@ -7,8 +7,7 @@ public interface IBaseDao {
     String DB_URL = "jdbc:mysql://localhost:3306/mydb";
     String DB_ID = "root";
     String DB_PW = "1234";
-
+    // 추상메소드
     boolean save(Object obj);
     ArrayList<Object> findAll();
-
 }
