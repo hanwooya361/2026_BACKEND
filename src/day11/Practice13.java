@@ -96,7 +96,7 @@ public class Practice13 {
         Dog 강아지 = new Dog();
         강아지.makeSound();
         
-        // 2.
+        // 2.   1) 첫글자가 대문자면 대부분 인터페이스/클래스명 2) 첫글자가 소문자면 변수/멤버변수 3) 젠처가 대문자 상수 4) 첫글자 소문자면서() 함수
         System.out.println(RemoteControl.MAX_VOLUME);
         System.out.println(RemoteControl.MIN_VOLUME);
 
