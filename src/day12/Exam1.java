@@ -67,7 +67,19 @@ public class Exam1 {
             System.out.println("무조건실행");
         }
         
+        // * try{예외발생할것같은코드}catch(예외클래스명 변수명){}catch(예외클래스명 변수명){}finally{}
 
-        
+        // [5] 예외 던지기(떠넘기기) , *예외반환*: 해당 메소드를 호출한 곳으로 예외 반환
+        try{method1();}
+        catch(Exception e){System.out.println("메소드 예외발생"+e);}
+    
+    }
+    // 7. 예외발생시 발생한 곳에서 예외처리하지 않고 반환
+    public static void method1()throws ClassNotFoundException{
+        Class.forName("java.lang.Spring");  // 예외발생
+    }
+    public static void method2(){
+
     }
 }
+
