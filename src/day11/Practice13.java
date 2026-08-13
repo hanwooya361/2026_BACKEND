@@ -26,11 +26,11 @@ interface Attackable{
 }
 class Sword implements Attackable{
     @Override
-    public void attack(){}
+    public void attack(){System.out.println("검공격");}
 }
 class Gun implements Attackable{
     @Override
-    public void attack(){}
+    public void attack(){System.out.println("총공격");}
 }
 class Character{
     public void useWeapon(Attackable weapon){
@@ -62,8 +62,33 @@ class MySqlDao implements DataAccessObject{
     @Override
     public void save() {System.out.println("MYSQL DB에 저장");}
 }
-
-public class Practice12 {
+// 7.
+interface Greeting{
+    void welcome();
+}
+// 8.
+interface Device{
+    void turnOn();
+    void turnOff();
+    public default void setMute(boolean mute){
+        System.out.println("무음 처리합니다");
+    };
+}
+class Television implements Device{
+    @Override
+    public void turnOff() {   
+    }
+    @Override
+    public void turnOn() {
+    } 
+}
+// 9.
+interface Calculator{
+    public static int plus(int x, int y){
+        return x+y;
+    }
+}
+public class Practice13 {
     public static void main(String[] args) {
         // 1.
         Cat 고양이 = new Cat();
@@ -105,6 +130,21 @@ public class Practice12 {
         dao.save();
 
         // 7.
+        Greeting g = new Greeting() {
+            @Override
+            public void welcome(){ System.out.println("환영합니다");}
+        };
+        g.welcome();
+
+        // 8.
+        Television tel = new Television();
+        tel.turnOn();
+        tel.turnOff();
+        tel.setMute(true);
+        tel.setMute(false);
+
+        // 9.
+        System.out.println(Calculator.plus(10, 20)); 
     }
 }
 
