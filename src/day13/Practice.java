@@ -167,3 +167,88 @@
 }
 
 
+/* static String carParkingList = "3,211가6231,202608190930\n8,452하1234,202608171227";
+
+        public static void main(String[] args) {
+            System.out.println(carParkingList);
+            Scanner scan = new Scanner(System.in);
+
+            while (true) {
+                System.out.print("1.위치찾기 2.입차 3.출차 선택:");
+                int ch = scan.nextInt();
+                if( ch == 1 ){
+                    System.out.print("차량번호 입력:");
+                    String carNumber = scan.next();
+                    String result = findCarLocation(carNumber);
+                    System.out.println(result);
+                } 
+                if( ch == 2 ){ 
+                    System.out.print("위치번호 입력:");
+                    String location = scan.next();
+                    System.out.print("차량번호 입력:");
+                    String carNumber = scan.next();
+                    System.out.print("입차일시 입력:");
+                    int dateTime = scan.nextInt();
+                    String result2 = incar(location, carNumber, dateTime);
+                    System.out.println(result2);
+                }  
+                if( ch == 3 ){ 
+                    System.out.print("차량번호 입력:");
+                    String carNumber = scan.next();
+                    String result3 = outcar(carNumber);
+                    System.out.println(result3);
+                } 
+            }
+        }
+        
+
+        public static String findCarLocation(String carNumber){
+            String[] row = carParkingList.split( "\n" );
+            for(String rows : row){
+            String[] data = rows.split(",");
+            if(data[1].equals(carNumber)){
+                return data[0];
+            }
+        }
+        return "미등록 차량";   
+    }
+
+        public static String incar(String location, String carNumber, int dateTime){
+            String[] row = carParkingList.split( "\n" );
+            for(String rows : row){
+            String[] data = rows.split(",");
+            if(data[0].equals(location)){
+                return "중복주차 불가능";
+            }
+        }
+            carParkingList += "\n" + location + "," + carNumber + "," + dateTime;
+            return carParkingList;
+    }
+
+        public static String outcar(String carNumber){
+            String[] row = carParkingList.split( "\n" );
+            
+            for(String rows : row){
+            String[] data = rows.split(",");
+            LocalDateTime localDateTime = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+            String formattedDate = data[2].format(formatter);
+            if(data[1].equals(carNumber)){
+                carParkingList = carParkingList.replace(rows, carNumber);
+                return carParkingList;
+            }
+            int fee = 1000;
+            if((Integer.parseInt(localDateTime) - Integer.parseInt(data[2])) < 30){
+                return String.valueOf(1000);
+            }else if((Integer.parseInt(localDateTime) - Integer.parseInt(data[2])) > 30){
+                int PlusMinutes = (Integer.parseInt(localDateTime) - Integer.parseInt(data[2])) - 30;
+                int plusfee = (PlusMinutes+9)/10 * 1000;
+                fee += plusfee;
+                if(fee>20000)
+                fee = 20000;
+                return String.valueOf(fee);
+            }
+            return String.valueOf(1000);
+        }
+        return "미등록 차량";
+    } */
