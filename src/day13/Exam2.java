@@ -47,5 +47,10 @@ public class Exam2 {
         System.out.println(result);
         LocalDateTime result2 = localDateTime2.minusDays(20);
         System.out.println(result2);
+        // 7. 특정한 날짜/시간 추출
+        System.out.println(localDateTime2.getYear());
+        System.out.println(localDateTime2.getMonthValue());
+        System.out.println(localDateTime2.getDayOfMonth());
+        System.out.println(localDateTime2.getSecond());
     }
 }
