@@ -58,7 +58,7 @@ public class Exam1 {
         for(Constructor constructor : constructors){System.out.println(constructor);}
         // 5. getMethods(): 클래스내 메소드 정보 반환
         Method[] methods = c1.getMethods();
-        for(Method method : methods){System.out.println(method);}
+        for(Method method : methods){System.out.println(method);} 
     }
 }
 /*
