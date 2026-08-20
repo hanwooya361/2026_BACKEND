@@ -7,11 +7,11 @@ import java.util.Scanner;
 
 public class asfd {
     public static void main(String[] args) {
+        // [1] 차량 2대(\n 기준) 3,211가6231,202608190930  452하1234,202608171227
+        // 차량의 속성 3개(,기준)   3   /   211기6231   /   202608190930
         String carParkingList = "3,211가6231,202608190930\n8,452하1234,202608171227";
         Scanner scan = new Scanner(System.in);
         
-        
-
         while (true) {
             String [] parkingAry = carParkingList.split("\n"); // \n을 기준으로 차량들 나누기
             System.out.print("1.위치찾기 2.입차 3.출차 선택:");
