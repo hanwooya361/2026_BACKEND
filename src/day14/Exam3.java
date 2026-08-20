@@ -1,6 +1,7 @@
 package day14;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -35,6 +36,12 @@ public class Exam3 {
         // 3. forEach 지원, 컬렉션객체.forEach((반복변수명)->{})
         set1.forEach((str)->{System.out.println(str);});
         // - 활용처: Set(JDBC ResultSet)
+        
+        Iterator<String> 순회자 =  set1.iterator();    // 인덱스가 아닌 자료들을 순회하는 인터페이스 반환
+        while(순회자.hasNext()){    // 인터페이스 이용한 다음 자료 확인
+            System.out.println(순회자.next());  // 다음 자료 꺼내기 지원
+        }   
+        // 즉] 위 코드 이용해 향상된 for문 / forEach / ResultSet가 만들어짐
 
         // 11. TreeSet 이용한 자동 정렬 지원
         TreeSet<Integer> set2 = new TreeSet<>();
