@@ -5,3 +5,8 @@
         "lib/**/*.jar"
     ]
 }
+{
+    "editor.tokenColorCustomizations": {
+        "comments": "#6A9955"
+    }
+}
